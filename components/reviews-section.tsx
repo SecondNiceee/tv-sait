@@ -191,13 +191,29 @@ export function ReviewsSection() {
                   <div className="grid lg:grid-cols-2 h-full">
                     {/* Изображение отзыва */}
                     <div className="relative overflow-hidden bg-gray-900 flex items-center justify-center">
-                      <Image
-                        src={review.image || "/placeholder.svg"}
-                        alt={`Отзыв ${review.author}`}
-                        width={600}
-                        height={500}
-                        className="object-contain max-w-full max-h-full"
-                      />
+                      <div className="relative w-full h-full flex items-center justify-center">
+                        {/* Placeholder пока загружается */}
+                        <div className="absolute inset-0 bg-gray-800 animate-pulse flex items-center justify-center">
+                          <div className="text-gray-400 text-lg">Загрузка...</div>
+                        </div>
+
+                        <Image
+                          src={review.image || "/placeholder.svg"}
+                          alt={`Отзыв ${review.author}`}
+                          width={400}
+                          height={300}
+                          className="object-contain max-w-full max-h-full relative z-10"
+                          loading={index === currentSlide ? "eager" : "lazy"}
+                          priority={index === 0}
+                          onLoad={(e) => {
+                            // Скрываем placeholder после загрузки
+                            const placeholder = e.currentTarget.parentElement?.querySelector(".animate-pulse")
+                            if (placeholder) {
+                              placeholder.classList.add("opacity-0")
+                            }
+                          }}
+                        />
+                      </div>
                     </div>
 
                     {/* Контент отзыва */}
