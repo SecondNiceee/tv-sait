@@ -138,7 +138,7 @@ export function ProcessSection() {
             })}
           </div>
 
-          {/* Десктопная версия - горизонтальная */}
+          {/* Десктопная версия - горизо��тальная */}
           <div className="hidden lg:block">
             <div className="grid grid-cols-4 gap-8 relative">
               {/* Соединительные линии */}
