@@ -61,13 +61,13 @@ export function FAQSection() {
   ]
 
   return (
-    <section ref={sectionRef} className="py-20 bg-gradient-to-b from-gray-900 to-black text-white overflow-hidden">
+    <section ref={sectionRef} className="py-20 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
       <div className="container mx-auto px-4">
         <div
           className={`text-center mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <h2 className="text-4xl font-bold text-white mb-4">Часто задаваемые вопросы</h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Часто задаваемые вопросы</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Ответы на самые популярные вопросы о ремонте телевизоров
           </p>
         </div>
@@ -76,7 +76,7 @@ export function FAQSection() {
           {faqs.map((faq, index) => (
             <Card
               key={index}
-              className={`border-0 bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-500 ${
+              className={`border-0 bg-white shadow-lg hover:shadow-xl transition-all duration-500 ${
                 isVisible ? `opacity-100 translate-y-0` : "opacity-0 translate-y-10"
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
@@ -84,18 +84,18 @@ export function FAQSection() {
               <CardContent className="p-0">
                 <button
                   onClick={() => toggleItem(index)}
-                  className="w-full p-6 text-left flex items-center justify-between hover:bg-white/5 transition-colors duration-200"
+                  className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
                 >
-                  <h3 className="text-lg font-semibold text-white pr-4">{faq.question}</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 pr-4">{faq.question}</h3>
                   {openItems.includes(index) ? (
-                    <ChevronUp className="w-5 h-5 text-blue-400 flex-shrink-0" />
+                    <ChevronUp className="w-5 h-5 text-blue-600 flex-shrink-0" />
                   ) : (
-                    <ChevronDown className="w-5 h-5 text-blue-400 flex-shrink-0" />
+                    <ChevronDown className="w-5 h-5 text-blue-600 flex-shrink-0" />
                   )}
                 </button>
                 {openItems.includes(index) && (
                   <div className="px-6 pb-6">
-                    <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
+                    <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
                   </div>
                 )}
               </CardContent>

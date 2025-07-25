@@ -17,13 +17,13 @@ export default function TVRepairLanding() {
     <div className="min-h-screen bg-white">
       <HeroSection /> {/* Темная */}
       <ServicesSection /> {/* Темная */}
-      <AdvantagesSection /> {/* Светлая */}
-      <TVModelsSection /> {/* Темная */}
-      <ProcessSection /> {/* Светлая */}
+      <AdvantagesSection /> {/* Темная */}
+      <TVModelsSection /> {/* Светлая */}
+      <ProcessSection /> {/* Темная */}
       <StatsSection /> {/* Светлая */}
-      <PricingSection /> {/* Светлая */}
-      <ReviewsSection /> {/* Светлая */}
-      <FAQSection /> {/* Темная */}
+      <PricingSection /> {/* Темная */}
+      <ReviewsSection /> {/* Темная */}
+      <FAQSection /> {/* Светлая */}
       <ContactSection /> {/* Темная */}
       <Footer /> {/* Темная */}
     </div>

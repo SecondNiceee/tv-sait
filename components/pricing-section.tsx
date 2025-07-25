@@ -55,13 +55,13 @@ export function PricingSection() {
   ]
 
   return (
-    <section ref={sectionRef} className="py-20 bg-white overflow-hidden">
+    <section ref={sectionRef} className="py-20 bg-gradient-to-b from-gray-900 to-black text-white overflow-hidden">
       <div className="container mx-auto px-4">
         <div
           className={`text-center mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Наши цены</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold text-white mb-4">Наши цены</h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Честные цены без скрытых доплат. Окончательная стоимость определяется после диагностики
           </p>
         </div>
@@ -70,7 +70,7 @@ export function PricingSection() {
           {services.map((service, index) => (
             <Card
               key={index}
-              className={`relative border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 ${
+              className={`relative border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 ${
                 service.popular ? "ring-2 ring-green-500 scale-105" : ""
               } ${isVisible ? `opacity-100 translate-y-0 ${service.delay}` : "opacity-0 translate-y-10"}`}
             >
@@ -88,14 +88,14 @@ export function PricingSection() {
                 >
                   <span className="text-2xl font-bold text-white">₸</span>
                 </div>
-                <h3 className="text-2xl font-bold mb-2 text-gray-900">{service.title}</h3>
-                <div className="text-3xl font-bold text-gray-900 mb-2">{service.price}</div>
-                <p className="text-gray-600 mb-6">{service.description}</p>
+                <h3 className="text-2xl font-bold mb-2 text-white">{service.title}</h3>
+                <div className="text-3xl font-bold text-white mb-2">{service.price}</div>
+                <p className="text-gray-300 mb-6">{service.description}</p>
                 <ul className="space-y-3 mb-8">
                   {service.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center justify-center">
-                      <Check className="w-5 h-5 text-green-500 mr-2" />
-                      <span className="text-gray-700">{feature}</span>
+                      <Check className="w-5 h-5 text-green-400 mr-2" />
+                      <span className="text-gray-300">{feature}</span>
                     </li>
                   ))}
                 </ul>

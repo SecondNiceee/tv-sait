@@ -53,20 +53,20 @@ export function ReviewsSection() {
   ]
 
   return (
-    <section ref={sectionRef} className="py-20 bg-gradient-to-b from-gray-50 to-gray-100 overflow-hidden">
+    <section ref={sectionRef} className="py-20 bg-gradient-to-b from-black to-gray-900 text-white overflow-hidden">
       <div className="container mx-auto px-4">
         <div
           className={`text-center mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Отзывы наших клиентов</h2>
-          <p className="text-xl text-gray-600">Более 1000 довольных клиентов за последний год</p>
+          <h2 className="text-4xl font-bold text-white mb-4">Отзывы наших клиентов</h2>
+          <p className="text-xl text-gray-300">Более 1000 довольных клиентов за последний год</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {reviews.map((review, index) => (
             <Card
               key={index}
-              className={`border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 ${isVisible ? `opacity-100 translate-y-0 ${review.delay}` : "opacity-0 translate-y-10"}`}
+              className={`border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 ${isVisible ? `opacity-100 translate-y-0 ${review.delay}` : "opacity-0 translate-y-10"}`}
             >
               <CardContent className="p-8">
                 <div className="flex mb-6">
@@ -78,7 +78,7 @@ export function ReviewsSection() {
                     />
                   ))}
                 </div>
-                <p className="text-gray-700 mb-6 leading-relaxed text-lg">{review.text}</p>
+                <p className="text-gray-300 mb-6 leading-relaxed text-lg">{review.text}</p>
                 <div className="flex items-center">
                   <div
                     className={`w-12 h-12 bg-gradient-to-br ${review.color} rounded-full flex items-center justify-center text-white font-bold text-lg mr-4 hover:scale-110 transition-transform duration-300`}
@@ -86,8 +86,8 @@ export function ReviewsSection() {
                     {review.avatar}
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">{review.author}</p>
-                    <p className="text-gray-500 text-sm">{review.date}</p>
+                    <p className="font-semibold text-white">{review.author}</p>
+                    <p className="text-gray-400 text-sm">{review.date}</p>
                   </div>
                 </div>
               </CardContent>

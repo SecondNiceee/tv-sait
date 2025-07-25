@@ -71,13 +71,13 @@ export function AdvantagesSection() {
   ]
 
   return (
-    <section ref={sectionRef} className="py-20 bg-white overflow-hidden">
+    <section ref={sectionRef} className="py-20 bg-gradient-to-b from-black to-gray-900 text-white overflow-hidden">
       <div className="container mx-auto px-4">
         <div
           className={`text-center mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Почему выбирают нас?</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold text-white mb-4">Почему выбирают нас?</h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Мы предлагаем профессиональный сервис с гарантией качества и индивидуальным подходом к каждому клиенту
           </p>
         </div>
@@ -88,19 +88,19 @@ export function AdvantagesSection() {
             return (
               <Card
                 key={index}
-                className={`group border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 ${
+                className={`group border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 ${
                   isVisible ? `opacity-100 translate-y-0 ${advantage.delay}` : "opacity-0 translate-y-10"
                 }`}
               >
                 <CardContent className="p-8 text-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div
                     className={`w-16 h-16 bg-gradient-to-br ${advantage.color} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 relative z-10`}
                   >
                     <Icon className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 text-gray-900 relative z-10">{advantage.title}</h3>
-                  <p className="text-gray-600 leading-relaxed relative z-10">{advantage.description}</p>
+                  <h3 className="text-2xl font-bold mb-4 text-white relative z-10">{advantage.title}</h3>
+                  <p className="text-gray-300 leading-relaxed relative z-10">{advantage.description}</p>
                 </CardContent>
               </Card>
             )
