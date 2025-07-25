@@ -1,91 +1,64 @@
 "use client"
 
 import { useState } from "react"
+import { Phone, MessageCircle, MapPin, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { ChevronDown } from "lucide-react"
-import { CallMasterModal } from "./call-master-modal"
-import Image from "next/image"
+import { CallMasterModal } from "@/components/call-master-modal"
 
 export function HeroSection() {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const scrollToNextSection = () => {
-    const nextSection = document.getElementById("tv-models-section")
-    if (nextSection) {
-      nextSection.scrollIntoView({ behavior: "smooth" })
-    }
-  }
-
   return (
     <>
-      <section className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white relative overflow-hidden flex items-center">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image src="/tv-hero.jpeg" alt="TV Repair Background" fill className="object-cover opacity-20" priority />
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-gray-900/70 to-black/90"></div>
-        </div>
-
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 z-10">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-full blur-3xl animate-spin-slow"></div>
-        </div>
-
-        <div className="container mx-auto px-4 relative z-20">
+      <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white h-screen flex items-center overflow-hidden">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="container mx-auto px-3 sm:px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="mb-8 animate-fade-in">
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent leading-tight">
-                Ремонт телевизоров
-                <span className="block text-4xl md:text-6xl mt-2 text-yellow-400">на дому</span>
-              </h1>
-              <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Быстрый и качественный ремонт телевизоров всех марок. Выезд мастера в день обращения. Гарантия на все
-                виды работ.
-              </p>
+            <div className="inline-flex items-center bg-blue-600/20 backdrop-blur-sm border border-blue-400/30 rounded-full px-3 sm:px-6 py-2 mb-6 sm:mb-8">
+              <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-2 text-blue-300" />
+              <span className="text-blue-100 text-xs sm:text-sm font-medium">
+                Работаем 24/7 • Выезд в день обращения
+              </span>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in-delay">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight px-2">
+              Сервисный Центр
+              <br />
+              <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                Теле-Ателье
+              </span>
+            </h1>
+
+            <p className="text-lg sm:text-xl md:text-2xl mb-3 sm:mb-4 text-gray-300 font-light px-4">
+              Срочный ремонт телевизоров
+            </p>
+            <p className="text-sm sm:text-base lg:text-lg mb-8 sm:mb-10 text-gray-400 px-4">
+              Профессиональный ремонт на дому • Все бренды • Гарантия качества
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-12 px-4">
               <Button
-                onClick={() => setIsModalOpen(true)}
                 size="lg"
-                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
+                className="bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white px-6 sm:px-10 py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-200"
+                onClick={() => setIsModalOpen(true)}
               >
+                <Phone className="mr-2 sm:mr-3 h-5 w-5 sm:h-6 sm:w-6" />
                 Вызвать мастера
               </Button>
-
               <Button
-                onClick={scrollToNextSection}
-                variant="outline"
                 size="lg"
-                className="bg-transparent border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 px-8 py-4 text-lg font-semibold rounded-full backdrop-blur-sm transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 group"
+                className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white px-6 sm:px-10 py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-200"
+                onClick={() => window.open("https://wa.me/87077700795")}
               >
-                Читать далее
-                <ChevronDown className="ml-2 h-5 w-5 animate-bounce group-hover:translate-y-1 transition-transform duration-300" />
+                <MessageCircle className="mr-2 sm:mr-3 h-5 w-5 sm:h-6 sm:w-6" />
+                WhatsApp
               </Button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center animate-fade-in-delay-2">
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 transform hover:scale-105">
-                <div className="text-3xl font-bold text-yellow-400 mb-2">24/7</div>
-                <div className="text-gray-300">Работаем круглосуточно</div>
-              </div>
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 transform hover:scale-105">
-                <div className="text-3xl font-bold text-yellow-400 mb-2">1 год</div>
-                <div className="text-gray-300">Гарантия на ремонт</div>
-              </div>
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 transform hover:scale-105">
-                <div className="text-3xl font-bold text-yellow-400 mb-2">30 мин</div>
-                <div className="text-gray-300">Время приезда мастера</div>
-              </div>
+            <div className="flex items-center justify-center text-gray-300 bg-white/10 backdrop-blur-sm rounded-full px-4 sm:px-6 py-2 sm:py-3 inline-flex">
+              <MapPin className="mr-2 h-4 w-4 sm:h-5 sm:w-5 text-blue-300" />
+              <span className="text-sm sm:text-base lg:text-lg font-medium">г. Петропавловск</span>
             </div>
-          </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-          <div className="animate-bounce">
-            <ChevronDown className="h-8 w-8 text-white/60" />
           </div>
         </div>
       </section>
