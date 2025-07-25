@@ -1,0 +1,36 @@
+"use client"
+
+import { Phone, MessageCircle } from "lucide-react"
+import { Button } from "@/components/ui/button"
+
+export function Footer() {
+  return (
+    <footer className="bg-black text-white py-12">
+      <div className="container mx-auto px-4">
+        <div className="text-center">
+          <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+            Сервисный Центр Теле-Ателье
+          </h3>
+          <p className="text-gray-400 text-lg mb-6">Профессиональный ремонт телевизоров в г. Петропавловск</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <Button
+              className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full"
+              onClick={() => window.open("tel:87077700795")}
+            >
+              <Phone className="mr-2 h-5 w-5" />
+              Позвонить
+            </Button>
+            <Button
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full"
+              onClick={() => window.open("https://wa.me/87077700795")}
+            >
+              <MessageCircle className="mr-2 h-5 w-5" />
+              WhatsApp
+            </Button>
+          </div>
+          <p className="text-gray-500">© 2024 Сервисный Центр Теле-Ателье. Все права защищены.</p>
+        </div>
+      </div>
+    </footer>
+  )
+}
