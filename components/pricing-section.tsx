@@ -55,18 +55,21 @@ export function PricingSection() {
   ]
 
   return (
-    <section ref={sectionRef} className="py-20 bg-gradient-to-b from-gray-900 to-black text-white overflow-hidden">
-      <div className="container mx-auto px-4">
+    <section
+      ref={sectionRef}
+      className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-gray-900 to-black text-white overflow-hidden"
+    >
+      <div className="container mx-auto px-3 sm:px-4">
         <div
-          className={`text-center mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+          className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <h2 className="text-4xl font-bold text-white mb-4">Наши цены</h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4">Наши цены</h2>
+          <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto px-4">
             Честные цены без скрытых доплат. Окончательная стоимость определяется после диагностики
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-5xl mx-auto">
           {services.map((service, index) => (
             <Card
               key={index}
@@ -75,32 +78,32 @@ export function PricingSection() {
               } ${isVisible ? `opacity-100 translate-y-0 ${service.delay}` : "opacity-0 translate-y-10"}`}
             >
               {service.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-1 rounded-full text-sm font-semibold flex items-center">
-                    <Star className="w-4 h-4 mr-1" />
+                <div className="absolute -top-3 sm:-top-4 left-1/2 transform -translate-x-1/2">
+                  <div className="bg-gradient-to-r from-green-500 to-green-600 text-white px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-semibold flex items-center">
+                    <Star className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
                     Популярно
                   </div>
                 </div>
               )}
-              <CardContent className="p-8 text-center">
+              <CardContent className="p-4 sm:p-6 lg:p-8 text-center">
                 <div
-                  className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}
+                  className={`w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br ${service.color} rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300`}
                 >
-                  <span className="text-2xl font-bold text-white">₸</span>
+                  <span className="text-lg sm:text-xl lg:text-2xl font-bold text-white">₸</span>
                 </div>
-                <h3 className="text-2xl font-bold mb-2 text-white">{service.title}</h3>
-                <div className="text-3xl font-bold text-white mb-2">{service.price}</div>
-                <p className="text-gray-300 mb-6">{service.description}</p>
-                <ul className="space-y-3 mb-8">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 text-white">{service.title}</h3>
+                <div className="text-2xl sm:text-3xl font-bold text-white mb-2">{service.price}</div>
+                <p className="text-sm sm:text-base text-gray-300 mb-4 sm:mb-6">{service.description}</p>
+                <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                   {service.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center justify-center">
-                      <Check className="w-5 h-5 text-green-400 mr-2" />
-                      <span className="text-gray-300">{feature}</span>
+                      <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 mr-2" />
+                      <span className="text-sm sm:text-base text-gray-300">{feature}</span>
                     </li>
                   ))}
                 </ul>
                 <Button
-                  className={`w-full bg-gradient-to-r ${service.color} hover:opacity-90 text-white py-3 rounded-xl font-semibold transition-all duration-200`}
+                  className={`w-full bg-gradient-to-r ${service.color} hover:opacity-90 text-white py-2 sm:py-3 rounded-lg sm:rounded-xl font-semibold transition-all duration-200 text-sm sm:text-base`}
                   onClick={() => window.open("tel:87077700795")}
                 >
                   Заказать
