@@ -36,13 +36,13 @@ export function TVModelsSection() {
             className={`flex justify-center transition-all duration-1000 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-3xl transform rotate-3 animate-pulse"></div>
+              <div className="absolute z-40 inset-0 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-3xl transform rotate-3 animate-pulse"></div>
               <Image
-                src="/tv-models.png"
+                src="/tv-models.jpg"
                 alt="Различные модели телевизоров"
                 width={600}
                 height={400}
-                className="relative rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-500"
+                className="relative z-30 rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-500"
               />
             </div>
           </div>

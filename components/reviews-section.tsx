@@ -203,7 +203,7 @@ export function ReviewsSection() {
                           width={400}
                           height={300}
                           className="object-contain max-w-full max-h-full relative z-10"
-                          loading={index === currentSlide ? "eager" : "lazy"}
+                          loading={index === 0 ? "eager" : "lazy"}
                           priority={index === 0}
                           onLoad={(e) => {
                             // Скрываем placeholder после загрузки
