@@ -28,6 +28,7 @@ export function TVModelsSection() {
   return (
     <section
       ref={sectionRef}
+      id="tv-models-section"
       className="py-20 bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white overflow-hidden"
     >
       <div className="container mx-auto px-4">
