@@ -154,12 +154,12 @@ export function ContactSection() {
               </a>
             </div>
 
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center break-words">
               <Mail className="h-8 w-8 text-yellow-400 mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-3">Email</h3>
               <a
                 href="mailto:teleatele.kz@gmail.com"
-                className="text-lg text-yellow-300 hover:text-yellow-200 transition-colors"
+                className="text-sm sm:text-base lg:text-lg text-yellow-300 hover:text-yellow-200 transition-colors break-all"
               >
                 teleatele.kz@gmail.com
               </a>
