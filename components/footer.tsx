@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Phone, MessageCircle } from "lucide-react"
+import { Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { CallMasterModal } from "@/components/call-master-modal"
 
@@ -17,20 +17,13 @@ export function Footer() {
               Сервисный Центр Теле-Ателье
             </h3>
             <p className="text-gray-400 text-lg mb-6">Профессиональный ремонт телевизоров в г. Петропавловск</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <div className="flex justify-center mb-8">
               <Button
                 className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full"
                 onClick={() => setIsModalOpen(true)}
               >
                 <Phone className="mr-2 h-5 w-5" />
                 Вызвать мастера
-              </Button>
-              <Button
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full"
-                onClick={() => window.open("https://wa.me/87077700795")}
-              >
-                <MessageCircle className="mr-2 h-5 w-5" />
-                WhatsApp
               </Button>
             </div>
             <p className="text-gray-500">© 2024 Сервисный Центр Теле-Ателье. Все права защищены.</p>

@@ -1,12 +1,19 @@
 "use client"
 
 import { useState } from "react"
-import { Phone, MessageCircle, MapPin, Clock } from "lucide-react"
+import { Phone, MapPin, Clock, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { CallMasterModal } from "@/components/call-master-modal"
 
 export function HeroSection() {
   const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const scrollToNextSection = () => {
+    const nextSection = document.querySelector("#tv-models-section")
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: "smooth" })
+    }
+  }
 
   return (
     <>
@@ -47,11 +54,12 @@ export function HeroSection() {
               </Button>
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white px-6 sm:px-10 py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-200"
-                onClick={() => window.open("https://wa.me/87077700795")}
+                variant="outline"
+                className="bg-white/10 backdrop-blur-sm border-white/30 hover:bg-white/20 text-white px-6 sm:px-10 py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-200"
+                onClick={scrollToNextSection}
               >
-                <MessageCircle className="mr-2 sm:mr-3 h-5 w-5 sm:h-6 sm:w-6" />
-                WhatsApp
+                Читать далее
+                <ChevronDown className="ml-2 sm:ml-3 h-5 w-5 sm:h-6 sm:w-6" />
               </Button>
             </div>
 

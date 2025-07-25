@@ -1,134 +1,128 @@
 "use client"
 
-import { useState } from "react"
 import type React from "react"
-import { X, Send, CheckCircle } from "lucide-react"
+
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Phone, X } from "lucide-react"
 
 interface CallMasterModalProps {
   isOpen: boolean
   onClose: () => void
+  defaultMessage?: string
 }
 
-export function CallMasterModal({ isOpen, onClose }: CallMasterModalProps) {
+export function CallMasterModal({ isOpen, onClose, defaultMessage = "" }: CallMasterModalProps) {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
-    problem: "",
+    problem: defaultMessage,
   })
-  const [isSubmitted, setIsSubmitted] = useState(false)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    setIsSubmitted(true)
-    setTimeout(() => {
-      setIsSubmitted(false)
-      onClose()
-      setFormData({ name: "", phone: "", problem: "" })
-    }, 3000)
-  }
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    // Здесь будет логика отправки формы
+    console.log("Form submitted:", formData)
+    onClose()
+    // Сброс формы
     setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
+      name: "",
+      phone: "",
+      problem: "",
     })
   }
 
-  if (!isOpen) return null
+  const handleInputChange = (field: string, value: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      [field]: value,
+    }))
+  }
+
+  // Обновляем проблему при изменении defaultMessage
+  useState(() => {
+    if (defaultMessage && defaultMessage !== formData.problem) {
+      setFormData((prev) => ({
+        ...prev,
+        problem: defaultMessage,
+      }))
+    }
+  })
 
   return (
-    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-4">
-      <div className="bg-white rounded-xl sm:rounded-2xl shadow-2xl max-w-sm sm:max-w-md w-full max-h-[90vh] overflow-y-auto relative">
-        <button
-          onClick={onClose}
-          className="absolute top-3 right-3 sm:top-4 sm:right-4 w-7 h-7 sm:w-8 sm:h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors duration-200 z-10"
-        >
-          <X className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" />
-        </button>
+    <Dialog open={isOpen} onOpenChange={onClose}>
+      <DialogContent className="sm:max-w-md bg-white">
+        <DialogHeader>
+          <DialogTitle className="flex items-center gap-2 text-gray-900">
+            <Phone className="h-5 w-5 text-green-600" />
+            Вызвать мастера
+          </DialogTitle>
+        </DialogHeader>
 
-        <div className="p-4 sm:p-6 lg:p-8">
-          {!isSubmitted ? (
-            <>
-              <div className="text-center mb-4 sm:mb-6">
-                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Вызвать мастера</h2>
-                <p className="text-sm sm:text-base text-gray-600">
-                  Заполните форму и мы свяжемся с вами в течение 5 минут
-                </p>
-              </div>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="name" className="text-gray-700">
+              Имя
+            </Label>
+            <Input
+              id="name"
+              type="text"
+              placeholder="Введите ваше имя"
+              value={formData.name}
+              onChange={(e) => handleInputChange("name", e.target.value)}
+              required
+              className="border-gray-300 focus:border-blue-500"
+            />
+          </div>
 
-              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
-                <div>
-                  <Label htmlFor="modal-name" className="text-gray-700 text-sm font-medium mb-2 block">
-                    Ваше имя *
-                  </Label>
-                  <Input
-                    id="modal-name"
-                    name="name"
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 text-sm sm:text-base"
-                    placeholder="Введите ваше имя"
-                  />
-                </div>
+          <div className="space-y-2">
+            <Label htmlFor="phone" className="text-gray-700">
+              Телефон
+            </Label>
+            <Input
+              id="phone"
+              type="tel"
+              placeholder="+7 (999) 123-45-67"
+              value={formData.phone}
+              onChange={(e) => handleInputChange("phone", e.target.value)}
+              required
+              className="border-gray-300 focus:border-blue-500"
+            />
+          </div>
 
-                <div>
-                  <Label htmlFor="modal-phone" className="text-gray-700 text-sm font-medium mb-2 block">
-                    Номер телефона *
-                  </Label>
-                  <Input
-                    id="modal-phone"
-                    name="phone"
-                    type="tel"
-                    required
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 text-sm sm:text-base"
-                    placeholder="+7 (___) ___-__-__"
-                  />
-                </div>
+          <div className="space-y-2">
+            <Label htmlFor="problem" className="text-gray-700">
+              Проблема
+            </Label>
+            <Textarea
+              id="problem"
+              placeholder="Опишите проблему с телевизором"
+              value={formData.problem}
+              onChange={(e) => handleInputChange("problem", e.target.value)}
+              rows={3}
+              className="border-gray-300 focus:border-blue-500 resize-none"
+            />
+          </div>
 
-                <div>
-                  <Label htmlFor="modal-problem" className="text-gray-700 text-sm font-medium mb-2 block">
-                    Опишите проблему подробнее *
-                  </Label>
-                  <Textarea
-                    id="modal-problem"
-                    name="problem"
-                    required
-                    value={formData.problem}
-                    onChange={handleInputChange}
-                    rows={3}
-                    className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 resize-none text-sm sm:text-base"
-                    placeholder="Опишите что случилось с телевизором..."
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white py-3 sm:py-4 text-sm sm:text-lg font-semibold rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
-                >
-                  <Send className="mr-2 sm:mr-3 h-4 w-4 sm:h-5 sm:w-5" />
-                  Отправить заявку
-                </Button>
-              </form>
-            </>
-          ) : (
-            <div className="text-center py-6 sm:py-8">
-              <CheckCircle className="h-12 w-12 sm:h-16 sm:w-16 text-green-500 mx-auto mb-3 sm:mb-4" />
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Заявка отправлена!</h3>
-              <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">Мы свяжемся с вами в ближайшее время</p>
-              <div className="text-xs sm:text-sm text-gray-500">Окно закроется автоматически...</div>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
+          <div className="flex gap-3 pt-4">
+            <Button type="submit" className="flex-1 bg-green-600 hover:bg-green-700 text-white">
+              Отправить заявку
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              onClick={onClose}
+              className="px-4 border-gray-300 text-gray-700 hover:bg-gray-50 bg-transparent"
+            >
+              <X className="h-4 w-4" />
+            </Button>
+          </div>
+        </form>
+      </DialogContent>
+    </Dialog>
   )
 }
