@@ -8,7 +8,6 @@ const inter = Inter({
   subsets: ["latin", "cyrillic"],
   display: "swap",
 })
-
 export const metadata: Metadata = {
   title: "Сервисный центр Теле-Ателье - Ремонт телевизоров в Петропавловске",
   description: "Срочный ремонт телевизоров в Петропавловске. Выезд мастера на дом в течение часа. Бесплатная диагностика. Гарантия на работы. Тел: 8 706 660 1500, 8 707 770 0795",
@@ -34,7 +33,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/hero.jpg',
+        url: `${baseUrl}/hero.jpg`,
         width: 1200,
         height: 630,
         alt: 'Сервисный центр Теле-Ателье - Ремонт телевизоров',
@@ -45,7 +44,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Сервисный центр Теле-Ателье - Ремонт телевизоров в Петропавловске",
     description: "Срочный ремонт телевизоров в Петропавловске. Выезд мастера на дом в течение часа. Бесплатная диагностика.",
-    images: ['/logo.png'],
+    images: [`${baseUrl}/hero.jpg`],
   },
   robots: {
     index: true,
