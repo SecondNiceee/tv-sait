@@ -1,1 +1,1 @@
-export const baseUrl = "teleatele.kz"
+export const baseUrl = "https://teleatele.kz"
