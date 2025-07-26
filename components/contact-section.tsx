@@ -166,7 +166,7 @@ export function ContactSection() {
               <MessageCircle className="h-8 w-8 text-green-400 mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-3">WhatsApp</h3>
               <a
-                href="https://wa.me/87077700795"
+                href="https://wa.me/77077700795"
                 className="text-lg text-green-300 hover:text-green-200 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"

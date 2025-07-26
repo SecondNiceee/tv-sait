@@ -43,12 +43,12 @@ export function ReviewsSection() {
 
   return (
     <section ref={sectionRef} className="py-20 bg-gradient-to-b from-gray-50 to-gray-100 overflow-hidden">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 ">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Отзывы наших клиентов</h2>
           <p className="text-xl text-gray-600">Более 1000 довольных клиентов за последний год</p>
         </div>
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-4xl mx-auto rounded-2xl">
           <Carousel
             opts={{
               align: "start",
@@ -57,7 +57,7 @@ export function ReviewsSection() {
               dragFree: false,
             }}
             setApi={(api) => (apiRef.current = api)}
-            className="w-full"
+            className="w-full rounded-2xl"
           >
             <CarouselContent>
               {reviewImages.map((img, idx) => (
