@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Phone, MapPin, Clock, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { CallMasterModal } from "@/components/call-master-modal"
+import Image from "next/image"
 
 export function HeroSection() {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -19,6 +20,8 @@ export function HeroSection() {
     <>
       <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
+        <Image className="absolute w-full h-full md:scale-150 object-cover" width={1440} height={1116} src={"/hero.jpg"} alt="Ремонт телевизоров" />
+        <div className="bg-black w-full h-full absolute opacity-80"/>
         <div className="container mx-auto px-3 sm:px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center bg-blue-600/20 backdrop-blur-sm border border-blue-400/30 rounded-full px-3 sm:px-6 py-2 mb-6 sm:mb-8">

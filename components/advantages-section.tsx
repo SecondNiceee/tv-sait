@@ -29,7 +29,7 @@ export function AdvantagesSection() {
     {
       icon: Shield,
       title: "Гарантия качества",
-      description: "Предоставляем гарантию на все виды работ до 6 месяцев",
+      description: "Предоставляем гарантию на все виды работ до 12 месяцев",
       color: "from-blue-500 to-blue-600",
       delay: "delay-100",
     },

@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { X, CheckCircle } from "lucide-react"
+import { request } from "@/utils/request"
 
 interface CallMasterModalProps {
   isOpen: boolean
@@ -56,8 +57,17 @@ export function CallMasterModal({ isOpen, onClose, defaultMessage = "" }: CallMa
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true)
 
-    // Имитация отправки формы
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    // Отправка формы
+    await request({method : "POST", url : "/api/telegram/sendMessage", body : {
+      message : `
+Пришла заявка с сайта!!
+-----------------------
+Имя : ${data.name}
+Телефон : ${data.phone},
+-----------------------
+${data.problem}
+      `
+    }})
 
     console.log("Отправка заявки:", data)
     setIsSubmitting(false)
@@ -89,13 +99,6 @@ export function CallMasterModal({ isOpen, onClose, defaultMessage = "" }: CallMa
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="text-xl font-bold text-center">Вызвать мастера</DialogTitle>
-          <button
-            onClick={onClose}
-            className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
-          >
-            <X className="h-4 w-4" />
-            <span className="sr-only">Закрыть</span>
-          </button>
         </DialogHeader>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
