@@ -1,0 +1,1 @@
+export const baseUrl = "https://v0-minimalistic-landing-page-nine.vercel.app/"

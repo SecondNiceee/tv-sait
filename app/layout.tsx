@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
+import { baseUrl } from "@/constants/baseUrl"
 
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
@@ -20,14 +21,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  // metadataBase: new URL('https://teleatele.kz'),
+  metadataBase: new URL(baseUrl),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: "Сервисный центр Теле-Ателье - Ремонт телевизоров в Петропавловске",
     description: "Срочный ремонт телевизоров в Петропавловске. Выезд мастера на дом в течение часа. Бесплатная диагностика. Гарантия на работы.",
-    url: 'https://teleatele.kz',
+    url: baseUrl,
     siteName: 'Сервисный центр Теле-Ателье',
     locale: 'ru_RU',
     type: 'website',
@@ -90,7 +91,7 @@ export default function RootLayout({
               "@type": "LocalBusiness",
               "name": "Сервисный центр Теле-Ателье",
               "description": "Срочный ремонт телевизоров в Петропавловске. Выезд мастера на дом в течение часа. Бесплатная диагностика.",
-              "url": "https://teleatele.kz",
+              "url": baseUrl,
               "telephone": ["+7 706 660 1500", "+7 707 770 0795"],
               "address": {
                 "@type": "PostalAddress",
