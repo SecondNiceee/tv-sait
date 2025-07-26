@@ -135,7 +135,7 @@ ${data.problem}
                 },
               })}
               className={errors.phone ? "border-red-500" : ""}
-              placeholder="+7 (999) 123-45-67"
+              placeholder="+7 777  000-0000"
             />
             {errors.phone && <p className="text-sm text-red-500">{errors.phone.message}</p>}
           </div>
