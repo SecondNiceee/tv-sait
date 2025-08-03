@@ -1,65 +1,72 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
+
+// Обработка preflight
 export async function OPTIONS() {
   const headers = new Headers();
   headers.set('Access-Control-Allow-Origin', '*');
-  headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  headers.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
   headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-
   return new Response(null, { status: 200, headers });
 }
-export async function GET() {
-  return NextResponse.json({ message: 'API работает!' });
-}
-export async function POST(request: Request) {
+
+export async function POST(request: NextRequest) {
+  const headers = new Headers();
+  headers.set('Access-Control-Allow-Origin', '*');
+  headers.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
   try {
-    const headers = new Headers();
-    headers.set('Access-Control-Allow-Origin', '*');
-    headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    const {message} = await request.json();
-    const method = request.method;
-    if (method !== "POST"){
-      return NextResponse.json({message : "Не указан method"}, {status : 400})
-    }
-    if (!message){
-      return NextResponse.json({message : "Не указан message"}, {status : 400})
-    }
-    // Получаем токен из переменных окружения
-    const sec_token = "8068546933:AAFw-MSDl4JqYt8_7iehtMU40soJxdOPxyc"
-    const sec_chat_id = "5620861091"
+    const { message } = await request.json();
 
+    if (!message || typeof message !== 'string') {
+      return NextResponse.json(
+        { error: 'Поле "message" обязательно и должно быть строкой' },
+        { status: 400, headers }
+      );
+    }
+
+    // Основной бот
     const token = "7752212739:AAFuqn5tnrYaF8yG4ybEBgGlR2grJXomP1E";
-    const chat_id = "2144832745"
-
-    // Формируем URL для Telegram API
+    const chat_id = "2144832745";
     const url = `https://api.telegram.org/bot${token}/sendMessage`;
 
-    // Отправляем запрос в Telegram
+    // Второй бот (резервный)
+    const sec_token = "8068546933:AAFw-MSDl4JqYt8_7iehtMU40soJxdOPxyc";
+    const sec_chat_id = "5620861091";
+    const sec_url = `https://api.telegram.org/bot${sec_token}/sendMessage`;
+
+    // Отправляем в основной бот
     const telegramRes = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id, text : message }),
-    });
-
-    // Формируем URL для Telegram API
-    const sec_url = `https://api.telegram.org/bot${sec_token}/sendMessage`;
-
-    // Отправляем запрос в Telegram
-    await fetch(sec_url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ sec_chat_id, text : message }),
+      body: JSON.stringify({ chat_id, text: message }),
     });
 
     const data = await telegramRes.json();
 
     if (!telegramRes.ok) {
-      return NextResponse.json({ error: data.description || 'Telegram API error' }, { status: telegramRes.status });
+      return NextResponse.json(
+        { error: data.description || 'Ошибка Telegram API' },
+        { status: telegramRes.status, headers }
+      );
     }
 
-    return NextResponse.json({ ok: true, result: data.result });
+    // Отправляем в резервный бот (не блокируем ответ)
+    fetch(sec_url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: sec_chat_id, text: message }),
+    }).catch(err => console.error('Не удалось отправить во второй бот:', err));
+
+    return NextResponse.json(
+      { ok: true, result: data.result },
+      { status: 200, headers }
+    );
   } catch (error) {
-    console.log(error);
-    return NextResponse.json({ error: (error as Error).message }, { status: 500 });
+    console.error('Ошибка в API:', error);
+    return NextResponse.json(
+      { error: 'Внутренняя ошибка сервера' },
+      { status: 500, headers }
+    );
   }
 }
