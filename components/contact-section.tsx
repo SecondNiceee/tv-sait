@@ -37,7 +37,7 @@ export function ContactSection() {
     setIsSubmitting(true)
     await request({
       method: "POST",
-      url: "/api/telegram/sendMessage",
+      url: "https://tv-atelie.vercel.app/api/telegram/sendMessage",
       body: {
         message: `\nПришла заявка с сайта (контактная форма)!\n-----------------------\nИмя : ${data.name}\nТелефон : ${data.phone}\n-----------------------\n${data.question}\n        `,
       },

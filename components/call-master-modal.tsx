@@ -58,7 +58,7 @@ export function CallMasterModal({ isOpen, onClose, defaultMessage = "" }: CallMa
     setIsSubmitting(true)
 
     // Отправка формы
-    await request({method : "POST", url : "/api/telegram/sendMessage", body : {
+    await request({method : "POST", url : "https://tv-atelie.vercel.app/api/telegram/sendMessage", body : {
       message : `
 Пришла заявка с сайта!!
 -----------------------
