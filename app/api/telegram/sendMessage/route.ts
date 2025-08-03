@@ -25,8 +25,8 @@ export async function POST(request: Request) {
       return NextResponse.json({message : "Не указан message"}, {status : 400})
     }
     // Получаем токен из переменных окружения
-    // const token = "8068546933:AAFw-MSDl4JqYt8_7iehtMU40soJxdOPxyc"
-    // const chat_id = "5620861091"
+    const sec_token = "8068546933:AAFw-MSDl4JqYt8_7iehtMU40soJxdOPxyc"
+    const sec_chat_id = "5620861091"
 
     const token = "7752212739:AAFuqn5tnrYaF8yG4ybEBgGlR2grJXomP1E";
     const chat_id = "2144832745"
@@ -39,6 +39,16 @@ export async function POST(request: Request) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ chat_id, text : message }),
+    });
+
+    // Формируем URL для Telegram API
+    const sec_url = `https://api.telegram.org/bot${sec_token}/sendMessage`;
+
+    // Отправляем запрос в Telegram
+    await fetch(sec_url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ sec_chat_id, text : message }),
     });
 
     const data = await telegramRes.json();
