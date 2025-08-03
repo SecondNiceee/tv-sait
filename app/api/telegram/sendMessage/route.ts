@@ -7,6 +7,9 @@ export async function OPTIONS() {
 
   return new Response(null, { status: 200, headers });
 }
+export async function GET() {
+  return NextResponse.json({ message: 'API работает!' });
+}
 export async function POST(request: Request) {
   try {
     const headers = new Headers();
