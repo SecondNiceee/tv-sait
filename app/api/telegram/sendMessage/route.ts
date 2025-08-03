@@ -36,30 +36,23 @@ export async function POST(request: NextRequest) {
     const sec_url = `https://api.telegram.org/bot${sec_token}/sendMessage`;
 
     // Отправляем в основной бот
-    const telegramRes = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id, text: message }),
-    });
-
-    const data = await telegramRes.json();
-
-    if (!telegramRes.ok) {
-      return NextResponse.json(
-        { error: data.description || 'Ошибка Telegram API' },
-        { status: telegramRes.status, headers }
-      );
-    }
-
-    // Отправляем в резервный бот (не блокируем ответ)
     fetch(sec_url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ chat_id: sec_chat_id, text: message }),
     }).catch(err => console.error('Не удалось отправить во второй бот:', err));
 
+    await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id, text: message }),
+    });
+
+    // Отправляем в резервный бот (не блокируем ответ)
+
+
     return NextResponse.json(
-      { ok: true, result: data.result },
+      { ok: true, result: "Всё файн"},
       { status: 200, headers }
     );
   } catch (error) {

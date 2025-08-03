@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://teleatele.kz/sitemap.xml
+
+# Яндекс
+Host: teleatele.kz
