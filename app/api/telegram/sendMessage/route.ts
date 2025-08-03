@@ -36,7 +36,7 @@ export async function POST(request: NextRequest) {
     const sec_url = `https://api.telegram.org/bot${sec_token}/sendMessage`;
 
     // Отправляем в основной бот
-    fetch(sec_url, {
+    await fetch(sec_url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ chat_id: sec_chat_id, text: message }),
@@ -49,7 +49,6 @@ export async function POST(request: NextRequest) {
     });
 
     // Отправляем в резервный бот (не блокируем ответ)
-
 
     return NextResponse.json(
       { ok: true, result: "Всё файн"},
