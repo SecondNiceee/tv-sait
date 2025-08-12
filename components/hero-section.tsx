@@ -7,6 +7,7 @@ import { CallMasterModal } from "@/components/call-master-modal"
 import Image from "next/image"
 import { MarqueeText } from "./marquee-text"
 
+
 export function HeroSection() {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -16,6 +17,7 @@ export function HeroSection() {
       nextSection.scrollIntoView({ behavior: "smooth" })
     }
   }
+
 
   return (
     <>

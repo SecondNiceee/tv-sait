@@ -69,7 +69,6 @@ ${data.problem}
       `
     }})
 
-    console.log("Отправка заявки:", data)
     setIsSubmitting(false)
     setIsSuccess(true)
 
