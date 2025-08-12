@@ -1,40 +1,35 @@
-"use client"
+import { FC } from "react";
 
-import { useEffect, useRef } from "react"
-
-interface MarqueeTextProps {
-  text: string
-  className?: string
-  speed?: number
+interface IMarqueText{
+  text : string,
+  className : string,
+  speed : number
 }
-
-export function MarqueeText({ text, className = "", speed = 30 }: MarqueeTextProps) {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const textRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (!containerRef.current || !textRef.current) return
-
-    const container = containerRef.current
-    const textElement = textRef.current
-
-    // Создаем достаточно копий текста для бесшовной анимации
-    const repeatedText = Array.from({ length: 10 }, () => text).join(" • ")
-    textElement.textContent = repeatedText
-
-    // Устанавливаем CSS переменную для скорости анимации
-    container.style.setProperty("--marquee-speed", `${speed}s`)
-  }, [text, speed])
-
+export const MarqueeText:FC<IMarqueText> = ({ text = "", className = "", speed = 30 }) => {
   return (
-    <div ref={containerRef} className="overflow-hidden whitespace-nowrap relative">
+    <div className="relative w-full overflow-hidden">
       <div
-        ref={textRef}
-        className={`inline-block animate-marquee ${className}`}
+        className={`inline-block whitespace-nowrap ${className}`}
         style={{
-          animation: "marquee var(--marquee-speed, 30s) linear infinite",
+          animation: `marquee ${speed}s linear infinite`,
         }}
-      />
+      >
+        {/* Дублируем текст, чтобы не было разрыва */}
+        {Array(6).fill(text).join(" • ")}
+      </div>
+      <style jsx>{
+        `
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+        `}
+        
+      </style>
     </div>
-  )
-}
+  );
+};

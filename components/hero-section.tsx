@@ -4,8 +4,8 @@ import { useState } from "react"
 import { Phone, MapPin, Clock, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { CallMasterModal } from "@/components/call-master-modal"
-import { MarqueeText } from "@/components/marquee-text"
 import Image from "next/image"
+import { MarqueeText } from "./marquee-text"
 
 export function HeroSection() {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -80,7 +80,6 @@ export function HeroSection() {
                 <span className="text-sm sm:text-base lg:text-lg font-medium">г. Петропавловск</span>
               </div>
               <div className="text-xs sm:text-sm text-gray-400 text-center">Ул. Нурсултана Назарбаева 258</div>
-              <div className="text-xs text-gray-500">ИИН: 880122351228</div>
             </div>
           </div>
         </div>
@@ -90,7 +89,7 @@ export function HeroSection() {
           <MarqueeText
             text="Kaspi Рассрочка 0-0-4 • Kaspi Red • Kaspi Kredit"
             className="text-white font-bold text-base sm:text-xl md:text-2xl tracking-wide"
-            speed={20}
+           speed={30}
           />
         </div>
       </section>
