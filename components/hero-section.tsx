@@ -74,12 +74,12 @@ export function HeroSection() {
               </Button>
             </div>
 
-            <div className="flex gap-2 flex-col items-center justify-center text-gray-300 bg-white/10 backdrop-blur-sm rounded-xl px-4 sm:px-6 py-3 sm:py-4 inline-flex space-y-2 md:flex-col">
+            <div className="gap-2 flex-col items-center justify-center text-gray-300 bg-white/10 backdrop-blur-sm rounded-xl px-4 sm:px-6 py-3 sm:py-4 inline-flex md:flex-col">
               <div className="flex items-center">
                 <MapPin className="mr-2 h-4 w-4 sm:h-5 sm:w-5 text-blue-300" />
                 <span className="text-sm sm:text-base lg:text-lg font-medium">г. Петропавловск</span>
               </div>
-              <div className="text-xs sm:text-sm text-gray-400 text-center">Адрес: Ул.Нурсултана Назарбаева 258</div>
+              <div className="text-sm md:text-md text-gray-400 text-center">Адрес: Ул.Нурсултана Назарбаева 258</div>
             </div>
           </div>
         </div>
