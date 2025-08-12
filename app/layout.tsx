@@ -1,56 +1,55 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from "react"
+import "./globals.css"
 
 export const metadata = {
-  title: 'Сервисный центр Теле-Ателье - Ремонт телевизоров в Петропавловске',
+  title: "Сервисный центр Теле-Ателье - Ремонт телевизоров в Петропавловске",
   description:
-    'Срочный ремонт телевизоров в Петропавловске. Выезд мастера на дом в течение часа. Бесплатная диагностика. Гарантия на работы. Тел: 8 706 660 1500, 8 707 770 0795',
+    "Срочный ремонт телевизоров в Петропавловске. Выезд мастера на дом в течение часа. Бесплатная диагностика. Гарантия на работы. Тел: 8 706 660 1500, 8 707 770 0795",
   keywords:
-    'ремонт телевизоров, сервисный центр, Петропавловск, выезд мастера, диагностика телевизоров, теле-ателье, срочный ремонт',
-  authors: [{ name: 'Сервисный центр Теле-Ателье' }],
-  creator: 'Сервисный центр Теле-Ателье',
-  publisher: 'Сервисный центр Теле-Ателье',
-  robots: 'index, follow',
+    "ремонт телевизоров, сервисный центр, Петропавловск, выезд мастера, диагностика телевизоров, теле-ателье, срочный ремонт",
+  authors: [{ name: "Сервисный центр Теле-Ателье" }],
+  creator: "Сервисный центр Теле-Ателье",
+  publisher: "Сервисный центр Теле-Ателье",
+  robots: "index, follow",
   openGraph: {
-    title: 'Сервисный центр Теле-Ателье - Ремонт телевизоров в Петропавловске',
+    title: "Сервисный центр Теле-Ателье - Ремонт телевизоров в Петропавловске",
     description:
-      'Срочный ремонт телевизоров в Петропавловске. Выезд мастера на дом в течение часа. Бесплатная диагностика. Гарантия на работы.',
-    url: 'https://teleatele.kz',
-    siteName: 'Сервисный центр Теле-Ателье',
-    locale: 'ru_RU',
-    type: 'website',
+      "Срочный ремонт телевизоров в Петропавловске. Выезд мастера на дом в течение часа. Бесплатная диагностика. Гарантия на работы.",
+    url: "https://teleatele.kz",
+    siteName: "Сервисный центр Теле-Ателье",
+    locale: "ru_RU",
+    type: "website",
     images: [
       {
-        url: 'https://teleatele.kz/hero.jpg',
+        url: "https://teleatele.kz/hero.jpg",
         width: 1200,
         height: 630,
-        alt: 'Сервисный центр Теле-Ателье - Ремонт телевизоров',
+        alt: "Сервисный центр Теле-Ателье - Ремонт телевизоров",
       },
     ],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Сервисный центр Теле-Ателье - Ремонт телевизоров в Петропавловске',
+    card: "summary_large_image",
+    title: "Сервисный центр Теле-Ателье - Ремонт телевизоров в Петропавловске",
     description:
-      'Срочный ремонт телевизоров в Петропавловске. Выезд мастера на дом в течение часа. Бесплатная диагностика.',
-    images: 'https://teleatele.kz/hero.jpg',
+      "Срочный ремонт телевизоров в Петропавловске. Выезд мастера на дом в течение часа. Бесплатная диагностика.",
+    images: "https://teleatele.kz/hero.jpg",
   },
   alternates: {
-    canonical: 'https://teleatele.kz',
+    canonical: "https://teleatele.kz",
   },
   icons: {
-    icon: '/favicon.ico',
+    icon: "/favicon.ico",
   },
-};
+    generator: 'v0.app'
+}
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ru">
       <head>
         {/* Google Tag Manager (gtag.js) */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=AW-452999335"
-        ></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-452999335"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -66,50 +65,50 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'LocalBusiness',
-              name: 'Сервисный центр Теле-Ателье',
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              name: "Сервисный центр Теле-Ателье",
               description:
-                'Срочный ремонт телевизоров в Петропавловске. Выезд мастера на дом в течение часа. Бесплатная диагностика.',
-              url: 'https://teleatele.kz',
-              telephone: ['+7 706 660 1500', '+7 707 770 0795'],
+                "Срочный ремонт телевизоров в Петропавловске. Выезд мастера на дом в течение часа. Бесплатная диагностика.",
+              url: "https://teleatele.kz",
+              telephone: ["+7 706 660 1500", "+7 707 770 0795"],
               address: {
-                '@type': 'PostalAddress',
-                addressLocality: 'Петропавловск',
-                addressCountry: 'KZ',
+                "@type": "PostalAddress",
+                addressLocality: "Петропавловск",
+                addressCountry: "KZ",
               },
               geo: {
-                '@type': 'GeoCoordinates',
+                "@type": "GeoCoordinates",
                 latitude: 54.8758,
                 longitude: 69.1628,
               },
-              openingHours: 'Mo-Su 09:00-21:00',
-              serviceType: 'Ремонт телевизоров',
-              areaServed: { '@type': 'City', name: 'Петропавловск' },
-              sameAs: ['https://instagram.com/teleatele.kz'],
-              priceRange: '$$',
-              currenciesAccepted: 'KZT',
-              paymentAccepted: 'Cash, Card',
+              openingHours: "Mo-Su 09:00-21:00",
+              serviceType: "Ремонт телевизоров",
+              areaServed: { "@type": "City", name: "Петропавловск" },
+              sameAs: ["https://instagram.com/teleatele.kz"],
+              priceRange: "$$",
+              currenciesAccepted: "KZT",
+              paymentAccepted: "Cash, Card",
               hasOfferCatalog: {
-                '@type': 'OfferCatalog',
-                name: 'Услуги ремонта',
+                "@type": "OfferCatalog",
+                name: "Услуги ремонта",
                 itemListElement: [
                   {
-                    '@type': 'Offer',
+                    "@type": "Offer",
                     itemOffered: {
-                      '@type': 'Service',
-                      name: 'Диагностика телевизора',
-                      description: 'Бесплатная диагностика неисправностей',
+                      "@type": "Service",
+                      name: "Диагностика телевизора",
+                      description: "Бесплатная диагностика неисправностей",
                     },
-                    price: '0',
-                    priceCurrency: 'KZT',
+                    price: "0",
+                    priceCurrency: "KZT",
                   },
                   {
-                    '@type': 'Offer',
+                    "@type": "Offer",
                     itemOffered: {
-                      '@type': 'Service',
-                      name: 'Выезд мастера на дом',
-                      description: 'Выезд мастера в течение часа',
+                      "@type": "Service",
+                      name: "Выезд мастера на дом",
+                      description: "Выезд мастера в течение часа",
                     },
                   },
                 ],
@@ -134,13 +133,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <meta name="business:service_type" content="Ремонт телевизоров" />
         <meta name="business:opening_hours" content="Пн-Вс 09:00-21:00" />
         <meta name="business:area_served" content="Петропавловск" />
-        <meta
-          name="googlebot"
-          content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
-        />
+        <meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
         <link rel="icon" href="https://teleatele.kz/favicon.ico" type="image/x-icon" sizes="163x164" />
       </head>
       <body>{children}</body>
     </html>
-  );
+  )
 }
