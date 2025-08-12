@@ -79,7 +79,6 @@ export function HeroSection() {
                 <MapPin className="mr-2 h-4 w-4 sm:h-5 sm:w-5 text-blue-300" />
                 <span className="text-sm sm:text-base lg:text-lg font-medium">г. Петропавловск</span>
               </div>
-              <div className="text-sm md:text-base text-gray-400 text-center">Адрес: Ул.Нурсултана Назарбаева 258</div>
             </div>
           </div>
         </div>

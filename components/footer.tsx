@@ -27,6 +27,7 @@ export function Footer() {
               </Button>
             </div>
             <p className="text-gray-500">© 2024 Сервисный Центр Теле-Ателье. Все права защищены.</p>
+            <p className="text-gray-200">Адрес: Ул.Нурсултана Назарбаева 258</p>
             <div className=" text-gray-500">Инн организации : 880122351228</div>
           </div>
         </div>
