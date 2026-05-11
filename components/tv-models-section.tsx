@@ -60,7 +60,7 @@ export function TVModelsSection() {
           >
             <div className="relative">
               <Image
-                src="/tv-models.jpg"
+                src="/tv-broken.png"
                 alt="Ремонт телевизоров"
                 width={600}
                 height={400}

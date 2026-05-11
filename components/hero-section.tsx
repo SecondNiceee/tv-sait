@@ -79,7 +79,7 @@ export function HeroSection() {
             <div className="gap-2 flex-col items-center justify-center text-gray-300 bg-white/10 backdrop-blur-sm rounded-xl px-4 sm:px-6 py-3 sm:py-4 inline-flex md:flex-col">
               <div className="flex items-center">
                 <MapPin className="mr-2 h-4 w-4 sm:h-5 sm:w-5 text-blue-300" />
-                <span className="text-sm sm:text-base lg:text-lg font-medium">г. Петропавловск</span>
+                <span className="text-sm sm:text-base lg:text-lg font-medium">г. Петропавловск, ул. Сабита Муканова 50</span>
               </div>
             </div>
           </div>

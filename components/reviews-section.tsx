@@ -11,12 +11,12 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 const reviewImages = [
-  "/response1.jpeg",
-  "/response2.jpeg",
-  "/response3.jpeg",
-  "/response4.jpeg",
-  "/response5.jpeg",
-  "/response6.jpeg",
+  "/review1.jpg",
+  "/review2.jpg",
+  "/review3.jpg",
+  "/review4.jpg",
+  "/review5.jpg",
+  "/review6.jpg",
 ];
 
 export function ReviewsSection() {
