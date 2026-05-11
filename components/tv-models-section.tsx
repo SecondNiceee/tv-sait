@@ -74,20 +74,20 @@ export function TVModelsSection() {
             className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`}
           >
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6">
-              Ремонтируем все типы телевизоров
+              Замена экранов и матриц телевизоров
             </h2>
             <p className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8 leading-relaxed">
-              Наши мастера имеют опыт работы с телевизорами всех популярных брендов: Samsung, LG, Sony, Philips,
-              Panasonic и многими другими. Используем только оригинальные запчасти.
+              Замена Экрана обходится дешевле на 70% нового телевизора
+              Прямые поставки с завода изготовителя
+              Оригинальные экраны с гарантией на 3 года
             </p>
 
             <div className="space-y-4 sm:space-y-6">
               {tvTypes.map((type, index) => (
                 <div
                   key={index}
-                  className={`flex items-start gap-4 p-4 sm:p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-300 transform hover:scale-105 ${
-                    isVisible ? `opacity-100 translate-y-0 ${type.delay}` : "opacity-0 translate-y-5"
-                  }`}
+                  className={`flex items-start gap-4 p-4 sm:p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-300 transform hover:scale-105 ${isVisible ? `opacity-100 translate-y-0 ${type.delay}` : "opacity-0 translate-y-5"
+                    }`}
                 >
                   <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white">
                     {type.icon}
