@@ -50,7 +50,7 @@ export function HeroSection() {
             </h1>
 
             <p className="text-lg sm:text-xl md:text-2xl mb-3 sm:mb-4 text-gray-300 font-light px-4">
-              Срочный ремонт телевизоров
+              Профессиональный Ремонт Телевизоров с выездом на дом
             </p>
             <p className="text-sm sm:text-base lg:text-lg mb-8 sm:mb-10 text-gray-400 px-4">
               Профессиональный ремонт на дому • Все бренды • Гарантия качества
@@ -79,7 +79,7 @@ export function HeroSection() {
             <div className="gap-2 flex-col items-center justify-center text-gray-300 bg-white/10 backdrop-blur-sm rounded-xl px-4 sm:px-6 py-3 sm:py-4 inline-flex md:flex-col">
               <div className="flex items-center">
                 <MapPin className="mr-2 h-4 w-4 sm:h-5 sm:w-5 text-blue-300" />
-                <span className="text-sm sm:text-base lg:text-lg font-medium">г. Петропавловск</span>
+                <span className="text-sm sm:text-base lg:text-lg font-medium">г. Петропавловск, ул. Сабита Муканова 50</span>
               </div>
             </div>
           </div>
@@ -90,7 +90,7 @@ export function HeroSection() {
           <MarqueeText
             text="Kaspi Рассрочка 0-0-4 • Kaspi Red • Kaspi Kredit"
             className="text-white font-bold text-base sm:text-xl md:text-2xl tracking-wide"
-           speed={30}
+            speed={30}
           />
         </div>
       </section>
