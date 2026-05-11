@@ -50,7 +50,7 @@ export function HeroSection() {
             </h1>
 
             <p className="text-lg sm:text-xl md:text-2xl mb-3 sm:mb-4 text-gray-300 font-light px-4">
-              Срочный ремонт телевизоров
+              Профессиональный Ремонт Телевизоров с выездом на дом
             </p>
             <p className="text-sm sm:text-base lg:text-lg mb-8 sm:mb-10 text-gray-400 px-4">
               Профессиональный ремонт на дому • Все бренды • Гарантия качества
@@ -90,7 +90,7 @@ export function HeroSection() {
           <MarqueeText
             text="Kaspi Рассрочка 0-0-4 • Kaspi Red • Kaspi Kredit"
             className="text-white font-bold text-base sm:text-xl md:text-2xl tracking-wide"
-           speed={30}
+            speed={30}
           />
         </div>
       </section>
