@@ -18,7 +18,7 @@ const nextConfig = {
       'tailwind-merge'
     ],
     // "loose" — ок для лендинга (1–2 CSS-файла)
-    cssChunking: false,
+    cssChunking: 'loose',
   },
 
   webpack: (config, { dev, isServer }) => {
