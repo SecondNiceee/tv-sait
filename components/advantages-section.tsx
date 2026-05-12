@@ -52,7 +52,7 @@ export function AdvantagesSection() {
       title: "1000+ клиентов",
       description: "Более тысячи довольных клиентов доверили нам свою технику",
       color: "from-orange-500 to-orange-600",
-      delay: "delay-[400ms]",
+      delay: "delay-300",
     },
     {
       icon: Wrench,
@@ -66,7 +66,7 @@ export function AdvantagesSection() {
       title: "По всему городу",
       description: "Выезжаем во все районы Петропавловска без доплат",
       color: "from-teal-500 to-teal-600",
-      delay: "delay-[600ms]",
+      delay: "delay-700",
     },
   ]
 
