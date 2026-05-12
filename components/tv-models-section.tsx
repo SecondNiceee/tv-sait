@@ -74,7 +74,7 @@ export function TVModelsSection() {
             className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`}
           >
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6">
-              Замена экранов и матриц телевизоров
+            Замена Экранов (Матрицы) на Телевизоре
             </h2>
             <p className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8 leading-relaxed">
               Замена Экрана обходится дешевле на 70% нового телевизора
